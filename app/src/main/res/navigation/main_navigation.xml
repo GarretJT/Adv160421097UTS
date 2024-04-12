@@ -1,26 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_navigation.xml"
-    app:startDestination="@id/studentListFragment">
+    android:id="@+id/hobby_navigation"
+    app:startDestination="@id/registerFragment">
 
     <fragment
-        android:id="@+id/studentListFragment"
-        android:name="com.example.advweek4.view.StudentListFragment"
-        android:label="fragment_student_list"
-        tools:layout="@layout/fragment_student_list" >
+        android:id="@+id/hobbyListFragment"
+        android:name="com.example.Adv160421097UTS.view.HobbyListFragment"
+        android:label="Hobby List"
+        tools:layout="@layout/fragment_hobby_list">
         <action
-            android:id="@+id/actionStudentDetail"
-            app:destination="@id/studentDetailFragment" />
+            android:id="@+id/actionHobbyDetail"
+            app:destination="@id/hobbyDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/studentDetailFragment"
-        android:name="com.example.advweek4.view.StudentDetailFragment"
-        android:label="fragment_student_detail"
-        tools:layout="@layout/fragment_student_detail" >
+        android:id="@+id/loginFragment"
+        android:name="com.example.Adv160421097UTS.view.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/actionHobbyList"
+            app:destination="@id/hobbyListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hobbyDetailFragment"
+        android:name="com.example.Adv160421097UTS.view.HobbyDetailFragment"
+        android:label="fragment_hobby_detail"
+        tools:layout="@layout/fragment_hobby_detail" >
         <argument
-            android:name="studentId"
+            android:name="hobbyID"
             app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.Adv160421097UTS.view.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/actionLogin"
+            app:destination="@id/loginFragment" />
     </fragment>
 </navigation>

@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.advweek4"
+    namespace = "com.example.Adv160421097UTS"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.advweek4"
+        applicationId = "com.example.Adv160421097UTS"
         minSdk = 24
         targetSdk = 33
         versionCode = 1

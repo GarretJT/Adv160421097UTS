@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.AdvWeek4" parent="Theme.Material3.Dark">
+    <style name="Theme.Adv160421097UTS" parent="Theme.Material3.Dark">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_200</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
     <!-- Base application theme. -->
-    <style name="Base.Theme.AdvWeek4" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.Adv160421097UTS" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>

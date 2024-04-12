@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.HobbyDetailFragment">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageViewHobby"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_android_24" />
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:text="Hobby Title"
+            android:textAppearance="?android:textAppearanceLarge"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewHobby"
+            app:layout_constraintStart_toStartOf="@+id/imageViewHobby"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewHobby" />
+
+        <TextView
+            android:id="@+id/textViewUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="User"
+            android:textAppearance="?android:textAppearanceSmall"
+            app:layout_constraintEnd_toEndOf="@+id/textViewTitle"
+            app:layout_constraintStart_toStartOf="@+id/textViewTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+        <TextView
+            android:id="@+id/textViewShortDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:padding="8dp"
+            android:text="Short Description"
+            android:textAppearance="?android:textAppearanceSmall"
+            app:layout_constraintBottom_toTopOf="@+id/textViewMainDescription"
+            app:layout_constraintEnd_toEndOf="@+id/textViewUser"
+            app:layout_constraintStart_toStartOf="@+id/textViewUser"
+            app:layout_constraintTop_toBottomOf="@+id/textViewUser" />
+
+        <TextView
+            android:id="@+id/textViewMainDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Main Description"
+            android:textAppearance="?android:textAppearanceSmall"
+            app:layout_constraintEnd_toEndOf="@+id/textViewShortDescription"
+            app:layout_constraintStart_toStartOf="@+id/textViewShortDescription"
+            app:layout_constraintTop_toBottomOf="@+id/textViewShortDescription" />
+
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/textViewMainDescription"
+            app:layout_constraintStart_toStartOf="@+id/textViewMainDescription"
+            app:layout_constraintTop_toBottomOf="@+id/textViewMainDescription">
+
+            <Button
+                android:id="@+id/btnPrevious"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:onClick="showPreviousSection"
+                android:text="Previous" />
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:onClick="showNextSection"
+                android:text="Next" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
