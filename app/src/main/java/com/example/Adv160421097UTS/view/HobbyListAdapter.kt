@@ -49,7 +49,7 @@ class HobbyListAdapter(
         if (hobbyItem != null) {
             imageView.loadImageWithProgressBar(hobbyItem.image, progressBar)
         } else {
-            // Handle the case where hobbyItem is null
+
         }
 
     }

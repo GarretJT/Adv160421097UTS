@@ -12,6 +12,9 @@
         <action
             android:id="@+id/actionHobbyDetail"
             app:destination="@id/hobbyDetailFragment" />
+        <action
+            android:id="@+id/actionProfile"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -41,4 +44,9 @@
             android:id="@+id/actionLogin"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.Adv160421097UTS.view.ProfileFragment"
+        android:label="ProfileFragment" />
+
 </navigation>

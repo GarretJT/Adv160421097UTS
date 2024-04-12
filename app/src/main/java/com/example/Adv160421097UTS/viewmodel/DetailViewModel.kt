@@ -35,6 +35,7 @@ class DetailViewModel(application: Application) : AndroidViewModel(application) 
                 { response ->
                     val hobbyType = object : TypeToken<Hobby>() {}.type
                     val result = Gson().fromJson<Hobby>(response, hobbyType)
+
                     hobbyLD.value = result
                     loadingLD.value = false
                     Log.d(TAG, "Response: $response") // Log the response from the server

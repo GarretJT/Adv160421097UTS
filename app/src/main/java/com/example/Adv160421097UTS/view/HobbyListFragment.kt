@@ -10,6 +10,7 @@ import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.Adv160421097UTS.databinding.FragmentHobbyListBinding
 import com.example.Adv160421097UTS.viewmodel.ListViewModel
@@ -25,6 +26,7 @@ class HobbyListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Log.d("ProfileFragment", "ProfileFragment created")
         binding = FragmentHobbyListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -41,6 +43,10 @@ class HobbyListFragment : Fragment() {
         binding.recView.adapter = hobbyListAdapter
 
         observeViewModel()
+
+        binding.buttonProfile.setOnClickListener {
+            findNavController().navigate(HobbyListFragmentDirections.actionProfile())
+        }
     }
 
 

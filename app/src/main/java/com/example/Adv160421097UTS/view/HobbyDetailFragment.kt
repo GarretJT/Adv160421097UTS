@@ -12,11 +12,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.Adv160421097UTS.databinding.FragmentHobbyDetailBinding
 import com.example.Adv160421097UTS.model.Hobby
 import com.example.Adv160421097UTS.viewmodel.DetailViewModel
-//TODO: fix 'section' feature for main description list
-class HobbyDetailFragment : Fragment() {
 
+class HobbyDetailFragment : Fragment() {
     private lateinit var binding: FragmentHobbyDetailBinding
     private lateinit var viewModel: DetailViewModel
+    private var currentSectionIndex = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,34 +60,44 @@ class HobbyDetailFragment : Fragment() {
                 updateUI(hobby)
             }
         })
-    }
 
+        binding.btnNext.setOnClickListener {
+            showNextSection()
+            updateSectionNumber()
+        }
+
+        binding.btnPrevious.setOnClickListener {
+            showPreviousSection()
+            updateSectionNumber()
+        }
+
+    }
+    private fun updateSectionNumber() {
+        val hobby = viewModel.hobbyLD.value
+        val totalSections = hobby?.mainDescription?.size ?: 0
+        val currentSectionNumber = currentSectionIndex + 1
+        binding.textViewSectionNumber.text = "$currentSectionNumber of $totalSections"
+    }
     private fun updateUI(hobby: Hobby) {
         binding.textViewTitle.text = hobby.title
         binding.textViewUser.text = hobby.user
         binding.textViewShortDescription.text = hobby.shortDescription
-        binding.textViewMainDescription.text = hobby.mainDescription[0] // Display the first section initially
+        binding.textViewMainDescription.text = hobby.mainDescription[currentSectionIndex]
     }
 
-    // Function to display the next section of main description
-    fun showNextSection(view: View) {
-        // Increment the section index
-        val currentSectionIndex = binding.textViewMainDescription.text.toString().toInt()
-        val nextSectionIndex = currentSectionIndex + 1
+    private fun showNextSection() {
         val hobby = viewModel.hobbyLD.value
-        if (hobby != null && nextSectionIndex < hobby.mainDescription.size) {
-            binding.textViewMainDescription.text = hobby.mainDescription[nextSectionIndex]
+        if (hobby != null && currentSectionIndex < hobby.mainDescription.size - 1) {
+            currentSectionIndex++
+            binding.textViewMainDescription.text = hobby.mainDescription[currentSectionIndex]
         }
     }
 
-    // Function to display the previous section of main description
-    fun showPreviousSection(view: View) {
-        // Decrement the section index
-        val currentSectionIndex = binding.textViewMainDescription.text.toString().toInt()
-        val previousSectionIndex = currentSectionIndex - 1
+    private fun showPreviousSection() {
         val hobby = viewModel.hobbyLD.value
-        if (hobby != null && previousSectionIndex >= 0) {
-            binding.textViewMainDescription.text = hobby.mainDescription[previousSectionIndex]
+        if (hobby != null && currentSectionIndex > 0) {
+            currentSectionIndex--
+            binding.textViewMainDescription.text = hobby.mainDescription[currentSectionIndex]
         }
     }
 }
