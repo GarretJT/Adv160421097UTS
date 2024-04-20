@@ -38,11 +38,11 @@ class ListViewModel(application: Application) : AndroidViewModel(application) {
                     val result = Gson().fromJson<List<Hobby>>(response, hobbyType)
                     hobbiesLD.value = result as ArrayList<Hobby>?
                     loadingLD.value = false
-                    Log.d(TAG, "Response: $response") // Log the response from the server
-                    Log.d(TAG, "Parsed Result: $result") // Log the parsed result
+                    Log.d(TAG, "Response: $response")
+                    Log.d(TAG, "Parsed Result: $result")
                 },
                 { error ->
-                    Log.d(TAG, "Error: $error") // Log any error that occurred
+                    Log.d(TAG, "Error: $error")
                     hobbyLoadErrorLD.value = true
                     loadingLD.value = false
                 })

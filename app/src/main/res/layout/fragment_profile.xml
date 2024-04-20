@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <!-- Display current user's information -->
     <TextView
         android:id="@+id/textViewUsername"
         android:layout_width="0dp"
@@ -41,7 +40,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
 
-    <!-- EditText for entering new username -->
     <EditText
         android:id="@+id/editTextNewUsername"
         android:layout_width="0dp"
@@ -52,7 +50,6 @@
         app:layout_constraintTop_toBottomOf="@+id/horizontalDividerEmail"
         android:layout_marginTop="16dp"/>
 
-    <!-- Button for changing username -->
     <Button
         android:id="@+id/buttonChangeUsername"
         android:layout_width="wrap_content"
@@ -62,7 +59,6 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextNewUsername"
         android:layout_marginTop="8dp"/>
 
-    <!-- Horizontal divider below change username button -->
     <View
         android:id="@+id/horizontalDividerChangeUsername"
         android:layout_width="match_parent"
@@ -73,7 +69,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
 
-    <!-- EditText for entering new password -->
     <EditText
         android:id="@+id/editTextNewPassword"
         android:layout_width="0dp"
@@ -85,7 +80,6 @@
         app:layout_constraintTop_toBottomOf="@+id/horizontalDividerChangeUsername"
         android:layout_marginTop="16dp"/>
 
-    <!-- Button for changing password -->
     <Button
         android:id="@+id/buttonChangePassword"
         android:layout_width="wrap_content"
@@ -95,7 +89,6 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextNewPassword"
         android:layout_marginTop="8dp"/>
 
-    <!-- Horizontal divider below change password button -->
     <View
         android:id="@+id/horizontalDividerChangePassword"
         android:layout_width="match_parent"
@@ -106,7 +99,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
 
-    <!-- Button for logging out -->
     <Button
         android:id="@+id/buttonLogout"
         android:layout_width="wrap_content"

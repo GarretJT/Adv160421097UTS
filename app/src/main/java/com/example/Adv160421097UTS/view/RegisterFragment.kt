@@ -1,19 +1,18 @@
 package com.example.Adv160421097UTS.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.Adv160421097UTS.R
 import com.example.Adv160421097UTS.databinding.FragmentRegisterBinding
 import com.example.Adv160421097UTS.viewmodel.RegisterViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class RegisterFragment : Fragment() {
-
-    private val TAG = "RegisterFragment"
 
     private lateinit var binding: FragmentRegisterBinding
     private lateinit var viewModel: RegisterViewModel
@@ -41,39 +40,38 @@ class RegisterFragment : Fragment() {
         }
 
         binding.buttonLogin.setOnClickListener {
-            findNavController().navigate(RegisterFragmentDirections.actionLogin())
+            findNavController().navigate(R.id.actionLogin)
         }
 
-        viewModel.registrationSuccessLD.observe(viewLifecycleOwner) { success ->
+        viewModel.registerSuccessLD.observe(viewLifecycleOwner) { success ->
             if (success) {
-                Log.d(TAG, "User registration successful")
-                // Navigate to login fragment upon successful registration
-                findNavController().navigateUp()
+                showSuccessSnackbar()
+                findNavController().navigate(R.id.actionLogin)
             }
         }
 
-        // Observe registration error event
-        viewModel.registrationErrorLD.observe(viewLifecycleOwner) { error ->
-            if (error) {
-                Log.e(TAG, "User registration failed")
-                // Show error message for failed registration
+        viewModel.registerErrorLD.observe(viewLifecycleOwner) { error ->
+            if (error.isNotBlank()) {
+                Snackbar.make(
+                    requireView(),
+                    error,
+                    Snackbar.LENGTH_SHORT
+                ).show()
             }
         }
 
-        // Observe loading status
         viewModel.loadingLD.observe(viewLifecycleOwner) { isLoading ->
-            // Show loading indicator if data is being loaded
             if (isLoading) {
-                Log.d(TAG, "Loading...")
-                // Show loading indicator
             } else {
-                Log.d(TAG, "Loading finished")
-                // Hide loading indicator
             }
         }
     }
 
-    private fun navigateToLogin() {
-        findNavController().navigateUp()
+    private fun showSuccessSnackbar() {
+        Snackbar.make(
+            requireView(),
+            getString(R.string.registration_success_message),
+            Snackbar.LENGTH_SHORT
+        ).show()
     }
 }

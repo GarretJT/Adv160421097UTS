@@ -35,7 +35,6 @@ class HobbyListAdapter(
         holder.binding.textViewUser.text = hobbyList[position].user
         holder.binding.textViewShortDescription.text = hobbyList[position].shortDescription
 
-        // Set an onClickListener for the item
         holder.binding.root.setOnClickListener {
             val action = HobbyListFragmentDirections.actionHobbyDetail(hobbyList[position].id)
             Log.d("HobbyListAdapter", "HOBBY ID: ${hobbyList[position].id}")

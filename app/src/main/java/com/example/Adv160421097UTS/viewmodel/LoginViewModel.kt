@@ -22,40 +22,43 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     private var queue: RequestQueue? = null
 
     init {
+        Log.d(TAG, "ViewModel initialized")
         queue = Volley.newRequestQueue(application)
     }
 
     fun authenticateUser(username: String, password: String) {
+        Log.d(TAG, "Starting authentication for username: $username")
         loadingLD.value = true
 
         queue?.let { queue ->
             val url = "http://10.0.2.2/users/users.json"
+            Log.d(TAG, "Sending request to URL: $url")
 
             val stringRequest = StringRequest(
                 Request.Method.GET, url,
                 { response ->
+                    Log.d(TAG, "Response received: $response")
                     val usersType = object : TypeToken<List<Users>>() {}.type
                     val userList = Gson().fromJson<List<Users>>(response, usersType)
 
-                    // Check if the entered username and password match any user in the list
                     val authenticatedUser = userList.find { it.username == username && it.password == password }
+
                     if (authenticatedUser != null) {
-                        // Authentication successful
                         Log.d(TAG, "User authenticated: $authenticatedUser")
-                        loggedInUserLD.value = authenticatedUser // Update loggedInUserLD with the authenticated user
+                        loggedInUserLD.value = authenticatedUser
                         loginSuccessLD.value = true
                     } else {
-                        // Authentication failed
                         Log.d(TAG, "Authentication failed for username: $username")
                         loginErrorLD.value = true
                     }
                     loadingLD.value = false
                 },
                 { error ->
-                    Log.e(TAG, "Error: $error") // Log any error that occurred
+                    Log.e(TAG, "Error: $error")
                     loginErrorLD.value = true
                     loadingLD.value = false
-                })
+                }
+            )
 
             stringRequest.tag = TAG
             queue.add(stringRequest)
@@ -64,6 +67,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     override fun onCleared() {
         super.onCleared()
+        Log.d(TAG, "ViewModel cleared, canceling all requests")
         queue?.cancelAll(TAG)
     }
 }

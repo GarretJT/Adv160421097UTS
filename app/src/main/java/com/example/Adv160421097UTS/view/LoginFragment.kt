@@ -34,43 +34,32 @@ class LoginFragment : Fragment() {
             val username = binding.editTextUsername.text.toString()
             val password = binding.editTextPassword.text.toString()
 
-            // Authenticate user using ViewModel
             viewModel.authenticateUser(username, password)
         }
 
-        // Observe login success event
         viewModel.loginSuccessLD.observe(viewLifecycleOwner) { success ->
             if (success) {
-                // Show welcome message using Snackbar
                 val username = binding.editTextUsername.text.toString()
                 showWelcomeSnackbar(username)
 
-                // Navigate to home/dashboard fragment upon successful login
                 findNavController().navigate(R.id.actionHobbyList)
             }
         }
 
-        // Observe login error event
         viewModel.loginErrorLD.observe(viewLifecycleOwner) { error ->
             if (error) {
-                // Show error message for invalid credentials
                 binding.textInputLayoutPassword.error = getString(R.string.invalid_credentials)
             }
         }
 
-        // Observe loading status
         viewModel.loadingLD.observe(viewLifecycleOwner) { isLoading ->
-            // Show loading indicator if data is being loaded
             if (isLoading) {
-                // Show loading indicator
             } else {
-                // Hide loading indicator
             }
         }
 
         binding.btnRegister.setOnClickListener {
-            // Navigate to register fragment
-            findNavController().navigate(R.id.actionLogin)
+            findNavController().navigateUp()
         }
     }
 

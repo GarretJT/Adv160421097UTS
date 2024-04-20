@@ -20,51 +20,51 @@ class ProfileFragment : Fragment() {
 
     private lateinit var textViewUsername: TextView
     private lateinit var textViewEmail: TextView
-    private lateinit var buttonChangeUsername: Button
     private lateinit var buttonChangePassword: Button
     private lateinit var buttonLogout: Button
+    private lateinit var buttonChangeUsername: Button
     private lateinit var loginViewModel: LoginViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
+
         textViewUsername = view.findViewById(R.id.textViewUsername)
         textViewEmail = view.findViewById(R.id.textViewEmail)
+
         buttonChangeUsername = view.findViewById(R.id.buttonChangeUsername)
         buttonChangePassword = view.findViewById(R.id.buttonChangePassword)
         buttonLogout = view.findViewById(R.id.buttonLogout)
 
-        // Initialize ViewModel
         loginViewModel = ViewModelProvider(requireActivity()).get(LoginViewModel::class.java)
+        Log.d("ProfileFragment", "ViewModel initialized")
 
-        // Observe the logged-in user data
-        loginViewModel.loggedInUserLD.observe(viewLifecycleOwner, Observer { user ->
-            // Update UI with user's information
-            user?.let {
-                Log.d("ProfileFragment", "User data updated: $it")
-                textViewUsername.text = "Username: ${it.username}"
-                textViewEmail.text = "Email: ${it.email}"
+        loginViewModel.loggedInUserLD.observe(viewLifecycleOwner) { user ->
+            Log.d("ProfileFragment", "Entering observer with user: $user")
+            if (user != null) {
+                Log.d("ProfileFragment", "User data: Username: ${user.username}, Email: ${user.email}")
+                textViewUsername.text = "Username: ${user.username}"
+                textViewEmail.text = "Email: ${user.email}"
+            } else {
+                Log.d("ProfileFragment", "No user is logged in")
+                textViewUsername.text = "Username: N/A"
+                textViewEmail.text = "Email: N/A"
             }
-        })
+        }
 
         buttonChangeUsername.setOnClickListener {
-            // TODO: Implement change username functionality
             Toast.makeText(requireContext(), "Successfully changed username", Toast.LENGTH_SHORT).show()
         }
 
         buttonChangePassword.setOnClickListener {
-            // TODO: Implement change password functionality
             Toast.makeText(requireContext(), "Successfully changed password", Toast.LENGTH_SHORT).show()
         }
 
         buttonLogout.setOnClickListener {
-            // Logout functionality
             Toast.makeText(requireContext(), "Logged out successfully", Toast.LENGTH_SHORT).show()
-            // Navigate back to the login fragment
-            findNavController().navigateUp()
+            findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
         }
 
         return view
