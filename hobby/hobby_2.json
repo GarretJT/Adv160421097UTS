@@ -1,0 +1,12 @@
+{
+  "id": "2",
+  "title": "Gardening",
+  "image": "https://loremflickr.com/320/240/cars?lock=2",
+  "user": "jane_smith",
+  "shortDescription": "Connect with nature by nurturing your own garden.",
+  "mainDescription": [
+    "Grow your own vegetables and herbs.",
+    "Create a beautiful and sustainable garden space.",
+    "Learn about plant care and landscaping."
+  ]
+}

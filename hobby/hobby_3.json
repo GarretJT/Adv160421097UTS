@@ -1,0 +1,12 @@
+{
+  "id": "3",
+  "title": "Cooking",
+  "image": "https://loremflickr.com/320/240/cars?lock=3",
+  "user": "mike_wilson",
+  "shortDescription": "Explore the world of flavors and cuisines.",
+  "mainDescription": [
+    "Master basic cooking techniques.",
+    "Experiment with new recipes and ingredients.",
+    "Host dinner parties and share your culinary creations."
+  ]
+}

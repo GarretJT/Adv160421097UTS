@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "title": "Photography",
+    "image": "https://loremflickr.com/320/240/cars?lock=1",
+    "user": "john_doe",
+    "shortDescription": "Capture the beauty of the world through your lens."
+  },
+  {
+    "id": "2",
+    "title": "Gardening",
+    "image": "https://loremflickr.com/320/240/cars?lock=2",
+    "user": "jane_smith",
+    "shortDescription": "Connect with nature by nurturing your own garden."
+  },
+  {
+    "id": "3",
+    "title": "Cooking",
+    "image": "https://loremflickr.com/320/240/cars?lock=3",
+    "user": "mike_wilson",
+    "shortDescription": "Explore the world of flavors and cuisines."
+  }
+]

@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "username": "user1",
+        "password": "password1",
+        "email": "user1@example.com"
+    },
+    {
+        "id": "2",
+        "username": "user2",
+        "password": "password2",
+        "email": "user2@example.com"
+    },
+    {
+        "id": "3",
+        "username": "user3",
+        "password": "password3",
+        "email": "user3@example.com"
+    },
+    {
+        "email": "reg1",
+        "id": 0,
+        "password": "reg1",
+        "username": "reg1"
+    },
+    {
+        "email": "reg2",
+        "id": 4,
+        "password": "reg2",
+        "username": "reg2"
+    },
+    {
+        "email": "reg3",
+        "id": 5,
+        "password": "reg3",
+        "username": "reg3"
+    }
+]

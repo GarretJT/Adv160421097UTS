@@ -1,0 +1,12 @@
+{
+  "id": "1",
+  "title": "Photography",
+  "image": "https://loremflickr.com/320/240/cars?lock=1",
+  "user": "john_doe",
+  "shortDescription": "Capture the beauty of the world through your lens.",
+  "mainDescription": [
+    "Learn the basics of photography.",
+    "Explore different photography techniques.",
+    "Join photography communities to share your work."
+  ]
+}
